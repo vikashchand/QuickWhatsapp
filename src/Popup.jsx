@@ -1,6 +1,7 @@
 import React from 'react';
 import './Popup.css'
 import {RiWhatsappFill} from 'react-icons/ri'
+import {FcPortraitMode} from 'react-icons/fc'
 class Popup extends React.Component {
     handleClick = () => {
       const phoneNumber = document.getElementById('phoneNumber').value;
@@ -9,6 +10,10 @@ class Popup extends React.Component {
         window.location.href = url;
       }
     };
+
+     handleUser = () => {
+      window.location.href="https://vikashchand.vercel.app/";
+    }
   
   
     render() {
@@ -33,7 +38,12 @@ class Popup extends React.Component {
             Open WhatsApp
           </button>
 
-          <h1>Made by Vikash Chand with 💖🔥</h1>
+          <br></br>
+          <br></br>
+          <br></br>
+
+        <h3> Made by Vikash Chand with 💖🔥</h3> 
+          <button className='popup-button' onClick={this.handleUser} > Creator Website <FcPortraitMode/> </button>
         </div>
 
         </div>
