@@ -2,23 +2,28 @@ import React from 'react';
 import './Popup.css'
 import {RiWhatsappFill} from 'react-icons/ri'
 import {FcPortraitMode} from 'react-icons/fc'
-class Popup extends React.Component {
-    handleClick = () => {
-      const phoneNumber = document.getElementById('phoneNumber').value;
-      if (phoneNumber) {
-        const url = `http://wa.me/${phoneNumber}`;
-        window.location.href = url;
-      }
-    };
 
-     handleUser = () => {
-      window.location.href="https://vikashchand.vercel.app/";
+class Popup extends React.Component {
+  handleClick = () => {
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    if (phoneNumber) {
+      const url = `http://wa.me/${phoneNumber}`;
+      window.location.href = url;
     }
-  
-  
-    render() {
-      return (
-        <div className='pop'>
+  };
+
+  handleUser = () => {
+    window.location.href = "https://vikashchand.vercel.app/";
+  }
+
+  handlePhoneNumberChange = (event) => {
+    const cleanedPhoneNumber = event.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+    document.getElementById('phoneNumber').value = cleanedPhoneNumber;
+  };
+
+  render() {
+    return (
+      <div className='pop'>
         <div className="popup-container">
           <h1 className="popup-title"><RiWhatsappFill/> QuickWApp</h1>
           <p className="popup-description">
@@ -29,6 +34,7 @@ class Popup extends React.Component {
             id="phoneNumber"
             placeholder="Phone number"
             className="popup-input"
+            onChange={this.handlePhoneNumberChange} // Add onChange event
           />
           <button
             id="openWhatsApp"
@@ -42,14 +48,12 @@ class Popup extends React.Component {
           <br></br>
           <br></br>
 
-        <h3> Made by Vikash Chand with 💖🔥</h3> 
+          <h3> Made by Vikash Chand with 💖🔥</h3> 
           <button className='popup-button' onClick={this.handleUser} > Creator Website <FcPortraitMode/> </button>
         </div>
-
-        </div>
-      );
-    }
+      </div>
+    );
   }
-  
+}
 
 export default Popup;
